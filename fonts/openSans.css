@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/openSans-300-normal.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/openSans-400-normal.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/openSans-400-italic.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/openSans-600-normal.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/openSans-700-normal.woff) format('woff');
+}

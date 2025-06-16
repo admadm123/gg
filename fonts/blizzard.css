@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Blizzard";
+    font-style: "normal";
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/blizzard-300-normal.woff) format("woff");
+}
+@font-face {
+    font-family: 'Blizzard';
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/blizzard-300-italic.woff) format("woff");
+}
+
+@font-face {
+    font-family: "Blizzard";
+    font-style: "normal";
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/blizzard-400-normal.woff) format("woff");
+}
+@font-face {
+    font-family: 'Blizzard';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/blizzard-400-italic.woff) format("woff");
+}
+
+@font-face {
+    font-family: "Blizzard";
+    font-style: "normal";
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/blizzard-700-normal.woff) format("woff");
+}
+@font-face {
+    font-family: 'Blizzard';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://turbo-wow.ru/site/images/all/fonts/blizzard-700-italic.woff) format("woff");
+}
