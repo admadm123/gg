@@ -1,0 +1,422 @@
+/* Основные стили */
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.nav-link a:active,
+.nav-link a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+/* Навигационная панель */
+.navbar {
+    background-color: rgb(64 47 46 / 95%);
+    padding: 15px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Логотип */
+.logo-container {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Стили для навигационных ссылок */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    transition: width 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+/* Убираем смещение текста при наведении */
+.nav-link.has-dropdown:hover {
+    padding: 8px 15px;
+}
+
+/* Меню для ПК */
+.navbar-menu {
+    display: none;
+    flex-grow: 1;
+    margin-left: 30px;
+    text-decoration: none;
+    font-family: "Poppins", helvetica, arial, sans-serif;
+}
+
+/* Дропдаун для ПК */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: rgba(64, 47, 46, 0.95);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    margin-top: 10px;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.dropdown-item {
+    color: #c1c5c8;
+    padding: 10px 20px;
+    transition: background 0.3s;
+}
+
+.dropdown-item:focus, 
+.dropdown-item:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #594c4d;
+}
+
+.dropdown-item:active,
+.dropdown-item:focus {
+    outline: none;
+    text-decoration: none;
+    background-color: #413d4c59;
+}
+
+.dropdown-arrow {
+    font-size: 0.8em;
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+.user-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Мобильное меню */
+.dropdown-menu-left,
+.dropdown-menu-right {
+    width: 37vh;
+    /*max-width: 320px;*/
+    height: 100vh;
+    background: rgba(64, 47, 46, 0.98);
+    border: none;
+    padding: 70px 0px 0px;
+    position: fixed;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ffffff45;
+    overflow-y: auto;
+    z-index: 1050;
+}
+
+.dropdown-menu-right {
+    transform: translateX(100%);
+    left: auto;
+    right: 0;
+}
+
+.dropdown-menu-left.show,
+.dropdown-menu-right.show {
+    transform: translateX(0);
+}
+
+.dropdown-menu-left a,
+.dropdown-menu-right a {
+    text-align: center;
+    margin: 10px 0;
+    height: auto;
+}
+
+.dropdown-item1 {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    font-family: "Poppins", helvetica, arial, sans-serif;
+}
+
+/* Кнопки меню */
+.menu-icon {
+    font-size: 28px;
+    color: #fff;
+    transition: transform 0.3s ease;
+    padding: 5px;
+}
+
+/* Кнопка закрытия */
+.close-btn {
+    position: absolute;
+    font-size: 32px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 1051;
+}
+
+.close-btn.left {
+    top: 15px;
+    left: 15px;
+}
+
+.close-btn.right {
+    top: 15px;
+    right: 15px;
+}
+
+/* Основной контейнер */
+.container {
+    padding: 30px;
+    animation: slideIn 0.6s ease-out;
+}
+
+h2 {
+    color: #ffbe04;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Анимации */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Затемнение фона при открытом меню */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    display: none;
+}
+
+/* Стиль кнопки "Скачать" */
+.btn-download {
+    color: white;
+    border-radius: 8px;
+    padding: 20px 25px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-login {
+    color: white;
+    border-radius: 8px;
+    padding: 20px 25px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+/* Стиль кнопки "Регистрация" */
+.btn-register {
+    background-color: #2b1d1c;
+    color: white;
+    border-radius: 9px;
+    padding: 20px 20px;
+    border: none;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+/* Десктопная версия (1485px и выше) */
+@media (min-width: 1485px) {
+    .navbar {
+        padding: 15px 30px;
+        border-radius: 10px;
+        margin: 15px;
+        width: calc(100% - 30px);
+    }
+    
+    .navbar-menu {
+        display: flex;
+        align-items: center;
+        margin-left: 0%;
+    }
+    
+    .main-dropdown,
+    .user-dropdown {
+        display: none;
+    }
+    
+    .user-actions {
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-link.has-dropdown {
+        position: relative;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    
+    .dropdown-menu {
+        background: rgba(43, 29, 28, 0.95);
+        border-radius: 10px;
+        margin-top: 30px;
+        min-width: 220px;
+        padding: 15px 0;
+        font-size: 17px;
+    }
+    
+    .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent rgba(43, 29, 28, 0.95) transparent;
+    }
+    
+    .dropdown-menu-left,
+    .dropdown-menu-right {
+        display: none !important;
+    }
+}
+
+/* Планшетная версия (770px - 1484px) */
+@media (min-width: 770px) and (max-width: 1484px) {
+    .navbar-menu,
+    .user-actions {
+        display: none !important;
+    }
+    
+    .navbar-toggler {
+        display: block;
+    }
+    
+    .navbar-toggler .fas {
+        font-size: 24px;
+    }
+}
+
+/* Мобильная версия (до 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        height: 70px;
+        padding: 5px 15px;
+        justify-content: space-between;
+    }
+    
+    .logo-container {
+        order: 2;
+    }
+    
+    .user-dropdown {
+        order: 3;
+    }
+    
+    .main-dropdown {
+        order: 1;
+    }
+    
+    .navbar-menu,
+    .user-actions {
+        display: none !important;
+    }
+}
+
+/* Маленькие экраны (до 480px) */
+@media (max-width: 480px) {
+    .dropdown-menu-left,
+    .dropdown-menu-right {
+        width: 100%;
+        max-width: none;
+        padding: 60px 0px 0px;
+    }
+    
+    .dropdown-item1 {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    .btn-download,
+    .btn-register {
+        padding: 12px 18px;
+        font-size: 18px;
+        margin: 10px 0;
+    }
+	
+    .btn-login{
+		background-color: #0074e0;
+        padding: 12px 18px;
+        font-size: 18px;
+        margin: 10px 0;
+    }
+    
+    .menu-icon {
+        font-size: 24px;
+    }
+    
+    .logo {
+        width: 50px;
+    }
+}
+
+/* Адаптация темной темы */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+    }
+    .navbar {
+        background: #2d2d2d;
+    }
+}

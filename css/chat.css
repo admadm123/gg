@@ -1,0 +1,597 @@
+.chat-container {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    background-image: url("https://turbo-wow.ru/site/images/all/component/d2bfd3ea45910c01255a.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-modal-content {
+    padding: 25px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0; /* Убираем старый margin-top */
+    width: 90%;
+    max-width: 400px;
+	background: linear-gradient(145deg, #3a4653, #222e3a);
+	border-radius: 12px;
+}
+
+.chat-box {
+    height: 610px;
+    overflow-y: auto;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    overflow-anchor: none;
+}
+
+.message:last-child {
+    overflow-anchor: auto;
+}
+
+.emoji-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.emoji-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emoji-modal-content {
+    background: linear-gradient(145deg, #3a4653, #222e3a);
+    padding: 10px;
+    border-radius: 8px;
+    width: 90%;
+    height: 40%;
+    max-width: 400px;
+    max-height: 70vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.emoji-modal-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #e1e1e1;
+}
+
+.emoji-modal-header {
+    color: #e1e1e1;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.emoji-picker {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.emoji {
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s;
+    padding: 5px;
+    user-select: none;
+}
+
+.emoji:hover {
+    transform: scale(1.2);
+}
+
+.confirm-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.confirm-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-modal-header {
+    color: #e1e1e1;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.confirm-modal-body {
+    color: #b0b0b0;
+    margin-bottom: 20px;
+}
+
+.confirm-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.confirm-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.confirm-btn-cancel {
+    background-color: #2b5278;
+    color: white;
+    border: none;
+}
+
+.confirm-btn-cancel:hover {
+    background-color: #3a6a94;
+}
+
+.confirm-btn-delete {
+    background-color: #fb4e46;
+    color: white;
+    border: none;
+}
+
+.confirm-btn-delete:hover {
+    background-color: #ff6b6b;
+}
+
+.send-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.send-button.disabled img {
+    filter: grayscale(100%);
+}
+
+.send-timer {
+    position: absolute;
+    right: 50px;
+    font-size: 12px;
+    color: #b0b0b0;
+    display: none;
+}
+
+.nk-header-wrap {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+@media (max-width: 767px) {
+    .has-aside .nk-content-wrap {
+        padding-bottom: 0;
+    }
+	
+	.container, 
+    .container-fluid, 
+    .container-lg, 
+    .container-md, 
+    .container-sm, 
+    .container-xl, 
+    .container-xxl {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .emoji-picker {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .chat-box {
+        height: calc(100vh - 20px) !important; /* Высота на весь экран за вычетом отступов */
+        margin: 0 !important; /* Убираем отступы */
+        border-radius: 0 !important; /* Убираем скругления, если нужно */
+        padding: 10px !important; /* Можно оставить, если нужно внутреннее пространство */
+        width: 100% !important; /* Устанавливаем ширину на 100% */
+        box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+    }
+
+    .emoji {
+        font-size: 20px;
+    }
+    
+    .send-timer {
+        right: 40px;
+        font-size: 10px;
+    }
+}
+
+.user-color-1 {
+    color: #faa357 !important;
+}
+
+.user-color-2 {
+    color: #9791c7 !important;
+}
+
+.user-color-3 {
+    color: #85de85 !important;
+}
+
+.user-color-4 {
+    color: #fb4e46 !important;
+}
+
+.chat-form {
+    display: flex;
+    flex-direction: column;
+	height: 80px;
+}
+
+.chat-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(145deg, #3a4653, #141b21);
+    padding: 10px;
+    position: relative;
+}
+
+.chat-input {
+    flex: 1;
+    height: 45px;
+    border: 1px solid #17212b;
+    background-color: #17212b;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    border-radius: 0;
+}
+
+/* Отключение отступов для мобильной версии */
+@media (max-width: 768px) {
+    .g-2 > div,
+    .g-2 > li {
+        padding: 0 !important; /* Убираем отступы */
+    }
+	
+	.nk-footer {
+        background: transparent; /* Убираем фон */
+        border-top: none; /* Убираем границу */
+        margin-top: 0; /* Убираем верхний отступ */
+        padding: 0; /* Убираем отступы */
+    }
+}
+
+.chat-input:focus {
+    border-color: #2b5278;
+}
+
+.send-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    transition: opacity 0.2s;
+}
+
+.send-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter 0.2s;
+}
+
+/* Базовые стили сообщений */
+.message {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    max-width: 78%;
+    word-wrap: break-word;
+    line-height: 1.5;
+    color: #f0f0f0;
+    font-size: 15px;
+    animation: messageAppear 0.25s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    
+    /* Градиент и скругления */
+    background: linear-gradient(145deg, #3a4653, #222e3a);
+    border-radius: 12px;
+    border-top-left-radius: 3px;
+}
+
+/* Сообщения других пользователей (слева) */
+.message {
+    margin-right: auto;
+    margin-left: 15px;
+    align-self: flex-start;
+}
+
+/* Ваши сообщения (справа) */
+.message.user {
+    margin-left: auto;
+    margin-right: 15px;
+    align-self: flex-end;
+    background: linear-gradient(145deg, #9a4daf, #7a4db8);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 3px;
+}
+
+/* Контейнер содержимого сообщения */
+.message-content {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Хвостик для сообщений слева */
+.message:not(.user) .message-content::after {
+    left: -12px;
+    bottom: -1px;
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%231e2c3a' d='M0 12c8 0 12-6 14-12 2 6 6 12 14 12-8 0-12 6-14 12-2-6-6-12-14-12z'/%3E%3C/svg%3E");
+}
+
+/* Хвостик для сообщений справа */
+.message.user .message-content::after {
+    right: -12px;
+    bottom: -1px;
+    width: 18px;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%239a4daf' d='M32 12c-8 0-12-6-14-12-2 6-6 12-14 12 8 0 12 6 14 12 2-6 6-12 14-12z'/%3E%3C/svg%3E");
+}
+
+
+/* Анимация появления */
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Информация о пользователе */
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.username {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+.message-date {
+    font-size: 11px;
+    opacity: 0.7;
+    margin-left: 10px;
+}
+
+/* Текст сообщения */
+.message-text {
+    font-size: 15px;
+    line-height: 1.45;
+    letter-spacing: 0.2px;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .message {
+        max-width: 85%;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px 14px;
+    }
+    
+    .message-content::after {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .message:not(.user) .message-content::after {
+        left: -8px;
+    }
+    
+    .message.user .message-content::after {
+        right: -8px;
+    }
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #e0e0e0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-to-bottom-btn {
+    position: absolute;
+    right: 30px;
+    bottom: 90px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(145deg, #3a4653, #141b21);
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.delete-message-btn {
+    position: absolute;
+    top: -15px;
+    right: -12px;
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    cursor: pointer;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.message:hover .delete-message-btn {
+    opacity: 1;
+}
+
+.notification {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    display: none;
+    text-align: center;
+    max-width: 80%;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.notification-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    border-radius: 10px;
+}
+
+.confirm-modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 100%;
+    max-width: 400px;
+}
+
+@keyframes slideIn {
+    from {
+        top: 45%;
+        opacity: 0;
+    }
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.notification.delete-success {
+    background-color: #a8e6a8;
+    color: #2d662d;
+}
+
+body {
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    overflow: hidden;
+}
+
+#stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: #fff;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@media (max-width: 768px) {
+    .chat-header {
+        display: none; /* Скрываем элемент */
+    }
+	
+    .nk-header-fixed + .nk-content {
+        margin-top: 0px;
+        position: relative;
+    }
+}
+
+.chat-header {
+    padding: 15px 20px;
+    background: linear-gradient(145deg, #3a4653, #141b21);
+}
+
+.title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #e0e0e0;
+}

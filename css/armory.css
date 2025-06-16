@@ -1,0 +1,482 @@
+    body {
+        background: url('path/to/your/wow-background.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+@media (max-width: 768px) {
+    .mobile-search-button {
+        display: inline-block !important;
+        padding: 10px 15px;
+    }
+    
+    .search-container input {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+    .dashboard-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+.rounded-container {
+    /* Общие стили для всех контейнеров */
+    padding: 20px;
+    margin: 15px 0;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+/* Стили только для второго контейнера (список персонажей) */
+.character-list.rounded-container {
+    background: #22242c !important;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+    .armory-header {
+        /*background: #22242c;*/
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        border-radius: 8px;
+    }
+
+    .armory-header i {
+        color: #ffd700;
+        font-size: 1.5em;
+        margin-right: 15px;
+    }
+
+    .armory-header h2 {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        color: #ffffff;
+        text-align: center;
+        flex: 1;
+    }
+
+    .search-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .search-container input {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #3d3d3f;
+        background: #2a2a2e;
+        color: white;
+        width: calc(100% - 25px);
+        margin-left: 10px;
+        margin-right: 10px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .search-container button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background: #0074e0;
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin-left: 10px;
+    }
+
+    .search-container button:hover {
+        background: #005bb5;
+    }
+
+    .character-list {
+        width: 100%;
+    }
+
+    .character-list table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .character-list th, .character-list td {
+        padding: 10px;
+        border-bottom: 1px solid #3d3d3f;
+        color: #c7c5b3;
+        text-align: left;
+    }
+
+    .character-list th {
+        /*background: #22242c;*/
+        color: #f8b700;
+    }
+
+/* Для строк таблицы с персонажами */
+.character-list tr:hover {
+    cursor: pointer;
+    /*background: rgba(255, 215, 0, 0.1);*/ /* Уже есть в вашем коде*/
+}
+
+    @media (max-width: 768px) {
+        .dashboard-container {
+            padding: 10px;
+        }
+        
+        .armory-header {
+            padding: 12px 15px;
+        }
+    }
+
+    @media (min-width: 1600px) {
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+	@media (max-width: 768px) {
+        .modal {
+			top: -5px;
+		}
+    }	
+	
+	@media (min-width: 1700px) and (max-width: 1980px) {
+      .modal-content {
+        top: -100px;
+      }
+    }
+
+.modal-content {
+    position: relative;
+    margin: 7% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 625px;
+    border-radius: 10px;
+    z-index: 1000;
+    background: transparent; /* Убрали дублирование свойства */
+    min-height: 500px; /* Добавим минимальную высоту */
+	background-color: #222;
+	background-color: transparent; /* Делаем основной фон прозрачным */
+}
+
+    .modal-header {
+        text-align: center;
+        color: #ffd700;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        margin-top: -20px;
+    }
+
+    .modal-body {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .item-slot {
+        width: 60px;
+        height: 60px;
+        background-color: #333;
+        border: 2px solid #555;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .item-slot:hover {
+        background-color: #444;
+    }
+
+    .weapon-slots {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    gap: 10px; /* Расстояние между ячейками */
+    margin-top: 20px; /* Отступ сверху */
+    padding: 10px; /* Внутренний отступ */
+    /*background: rgba(40, 40, 40, 0.8);*/ /* Фон для контейнера */
+    border-radius: 8px; /* Скругление углов */
+    }
+    
+.item-slot {
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    border: 2px solid #555;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Для позиционирования tooltip */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.item-slot:hover {
+    background-color: #444;
+}
+
+.item-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: left; /* Выравнивание текста по левому краю */
+    border-radius: 5px;
+    padding: 10px; /* Увеличенный внутренний отступ */
+    position: absolute;
+    z-index: 1;
+    bottom: 20%;
+    left: 120%;
+    /* transform: translateX(20%);*/
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #c0c0c0; /* Металлическая обводка (светло-серый цвет) */
+    box-shadow: 0 0 10px rgba(192, 192, 192, 0.5); /* Легкая тень для эффекта металла */
+}
+
+.item-slot:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.item-name {
+    font-weight: bold;
+    color: #ffd700; /* Желтый цвет для названия вещи */
+}
+
+.item-id, .item-level, .item-material {
+    font-size: 12px;
+    color: #ccc;
+}
+
+.class-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    border-radius: 10px;
+    z-index: 1;
+    filter: brightness(0.8);
+}
+
+.race-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 210% auto;
+    background-position: center 70%;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    border-radius: 10px;
+    z-index: 2;
+    mix-blend-mode: inherit;
+}
+
+.class-background,
+.race-background {
+    pointer-events: none; /* Чтобы клики проходили сквозь фоны */
+}
+
+.modal-body-content {
+    position: relative;
+    z-index: 3;
+    pointer-events: auto; /* Возвращаем взаимодействие */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 10px; /* Отступ сверху */
+    right: 15px; /* Отступ справа */
+    z-index: 1003; /* Самый высокий z-index */
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.close:hover {
+    color: #fff;
+}
+
+@media (max-width: 420px) { 
+.character-list table {
+    width: 100%;
+    border-collapse: collapse;
+    zoom: 85%;
+   }
+.modal-content {
+   zoom: 55%;    
+   }
+}  
+
+.modal-level {
+    text-align: center; /* Центрирование текста */
+    font-size: 1.2em; /* Размер шрифта для уровня */
+    color: #ffd700; /* Цвет текста для уровня */
+
+} 
+.modal-guild {
+    text-align: center; /* Центрирование текста */
+    font-size: 1em; /* Размер шрифта для гильдии */
+    margin-top: 5px; /* Отступ сверху */
+}
+
+.modal-header, 
+.modal-level, 
+.modal-guild {
+    position: relative; /* Делаем позиционируемыми */
+    z-index: 1002; /* Выше чем у фонов (z-index: 1 и 2) */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Добавляем тень тексту */
+}
+
+.guid-copy-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: #2c3e50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 1000;
+    font-size: 14px;
+}
+
+.guid-copy-btn:hover {
+    background: #34495e;
+}
+
+.copy-notification {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background: #27ae60;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+/* Стили для пагинации модального окна */
+.modal-pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    z-index: 1002;
+    position: relative;
+}
+
+.pagination-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+    background-color: #ffd700;
+    transform: scale(1.2);
+}
+
+/* Стили для страницы статистики */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.stat-label {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.stat-value {
+    color: #fff;
+}
+
+/* Анимация переключения страниц */
+.modal-page {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Увеличиваем вертикальный отступ между строками */
+.left-column, .right-column {
+    gap: 20px; /* Было 10px, увеличиваем до 20px */
+}
+
+/* Дополнительно можно увеличить отступы внутри ячеек */
+.item-slot {
+    padding: 1px; /* Добавляем внутренний отступ */
+    margin-bottom: 5px; /* Отступ снизу */
+}
